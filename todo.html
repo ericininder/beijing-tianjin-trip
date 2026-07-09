@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>To-Do List｜北京 × 天津 8日自由行</title>
+<style>
+:root{--sky:#dff6ff;--sky2:#f8fcff;--navy:#0b3766;--navy2:#082a50;--blue:#1e6799;--cream:#fff7e8;--line:#bde9f7;--orange:#f3a044;--card:#fff;--muted:#6c7c8d;--shadow:0 14px 40px rgba(9,50,93,.14);--radius:22px;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--navy2);background:linear-gradient(180deg,var(--sky),#f7fcff 42%,#fff)}a{color:inherit}.app{max-width:980px;margin:0 auto;padding:18px 16px 72px}.hero{position:relative;overflow:hidden;border-radius:30px;padding:26px 20px 22px;background:radial-gradient(circle at 10% 12%,#fff 0 7%,transparent 23%),linear-gradient(135deg,#bdefff,#f7fbff 70%);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.85)}.hero:before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160"><path d="M16 60 C70 10 112 120 178 56 C222 14 258 32 306 14" fill="none" stroke="rgba(11,55,102,.18)" stroke-width="3" stroke-dasharray="8 10"/><text x="268" y="28" font-size="24">✈</text><text x="28" y="132" font-size="22">✦</text><text x="218" y="126" font-size="18">✦</text></svg>') center/cover no-repeat;opacity:.75}.hero>*{position:relative}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.72);color:var(--blue);font-weight:900;letter-spacing:.08em}h1{margin:14px 0 6px;font-size:clamp(2rem,6vw,4.2rem);line-height:1.05;letter-spacing:.03em;color:var(--navy);text-shadow:0 2px 0 rgba(255,255,255,.65)}.hero p{margin:0;color:#31516c;line-height:1.7;font-weight:700}.top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 16px;border-radius:999px;text-decoration:none;border:1px solid rgba(10,55,101,.12);background:#fff;color:var(--navy);font-weight:950;box-shadow:0 8px 20px rgba(12,60,110,.10);cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--navy),#17669a);color:#fff;border-color:transparent}.btn.soft{background:#eefaff}.grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;margin-top:18px}.card{background:rgba(255,255,255,.9);border:1px solid rgba(190,232,247,.9);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.card-head{padding:20px 22px;background:linear-gradient(135deg,#fff,#eaf9ff);border-bottom:1px solid var(--line)}.card-body{padding:20px 22px}h2{margin:0;color:var(--navy);font-size:1.55rem}.hint{margin:8px 0 0;color:#4f6478;line-height:1.7;font-weight:700}.field{display:grid;gap:8px;margin:14px 0}label{font-weight:1000;color:var(--navy)}input,select{width:100%;min-height:48px;border-radius:16px;border:1px solid var(--line);background:#fff;padding:12px 14px;font-size:1rem;color:var(--navy2);font-weight:800;outline:none}input:focus,select:focus{border-color:#78c7e6;box-shadow:0 0 0 4px rgba(120,199,230,.25)}.progress-wrap{margin-top:16px;background:#eaf8ff;border:1px solid var(--line);border-radius:18px;padding:14px}.progress-meta{display:flex;justify-content:space-between;gap:10px;font-weight:1000;color:var(--navy)}.bar{height:12px;background:#d5eef8;border-radius:999px;margin-top:10px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),#1e9ad1);border-radius:999px;transition:.25s}.group{margin-bottom:16px}.group-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 10px;color:var(--navy);font-size:1.14rem;font-weight:1000}.tasks{display:grid;gap:10px}.task{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:12px;border-radius:16px;background:#f1fbff;border:1px solid var(--line)}.task.done{background:#f5f6f7;color:#718193}.task.done .text{text-decoration:line-through}.task input[type="checkbox"]{width:24px;height:24px;min-height:24px;accent-color:#0b5f95}.text{font-weight:850;line-height:1.5}.delete{border:0;background:#fff;color:#9b3d3d;border-radius:12px;padding:8px 10px;font-weight:1000;cursor:pointer;border:1px solid rgba(155,61,61,.15)}.empty{padding:24px;border:1px dashed var(--line);border-radius:16px;color:#547188;text-align:center;font-weight:850}.note{display:flex;gap:10px;padding:12px 14px;background:#fff7e8;border:1px solid rgba(243,160,68,.25);border-radius:16px;color:#244963;font-weight:850;line-height:1.6;margin-top:14px}.footer{margin-top:18px;text-align:center;color:#45677c;line-height:1.7;font-weight:650}.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;transition:.25s;background:rgba(8,42,80,.96);color:#fff;padding:12px 16px;border-radius:999px;z-index:100;box-shadow:0 14px 30px rgba(0,0,0,.18);font-weight:900}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:780px){.app{padding:12px 12px 72px}.hero{border-radius:24px;padding:22px 16px}.grid{grid-template-columns:1fr}.btn{flex:1 1 150px}.card-body,.card-head{padding-left:16px;padding-right:16px}.task{grid-template-columns:auto 1fr auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+  <div class="eyebrow">TRIP TOOL｜To-Do List</div>
+  <h1>旅行待辦清單</h1>
+  <p>可勾選、刪除或新增事項。資料只存在這台手機 / 電腦的瀏覽器，不會上傳到任何伺服器；適合同行者各自管理自己的準備進度。</p>
+  <div class="top-actions">
+    <a class="btn primary" href="./index.html">← 回行程首頁</a>
+    <a class="btn soft" href="./currency.html">💱 價錢換算</a>
+  </div>
+</header>
+<main class="grid">
+  <aside class="card">
+    <div class="card-head"><h2>新增待辦</h2><p class="hint">可以加入自己的購物、文件或每天要確認的事項。</p></div>
+    <div class="card-body">
+      <div class="field"><label for="taskText">待辦內容</label><input id="taskText" placeholder="例如：確認故宮門票預約"></div>
+      <div class="field"><label for="taskCat">分類</label><select id="taskCat"><option>出發前</option><option>行李</option><option>文件與支付</option><option>每日確認</option></select></div>
+      <button class="btn primary" type="button" onclick="addTask()">＋ 新增</button>
+      <div class="progress-wrap"><div class="progress-meta"><span id="progressText">0 / 0 完成</span><span id="progressPct">0%</span></div><div class="bar"><span id="barFill"></span></div></div>
+      <div class="top-actions"><button class="btn" type="button" onclick="copyList()">📋 複製清單</button><button class="btn soft" type="button" onclick="clearDone()">清除已完成</button><button class="btn" type="button" onclick="resetDefaults()">↺ 還原預設</button></div>
+      <div class="note"><span>🔔</span><span>如果換手機或換瀏覽器，勾選狀態不會同步；要分享狀態可使用「複製清單」。</span></div>
+    </div>
+  </aside>
+  <section class="card">
+    <div class="card-head"><h2>我的準備進度</h2><p class="hint">建議出發前一週先完成文件、支付與網路設定。</p></div>
+    <div class="card-body" id="taskRoot"></div>
+  </section>
+</main>
+<footer class="footer">小提醒：此頁是本機待辦清單，重新部署 GitHub Pages 不會清掉你手機上的勾選狀態。</footer>
+</div>
+<div class="toast" id="toast">已複製</div>
+<script>
+const KEY = 'bt_trip_todo_v1';
+const cats = ['出發前','行李','文件與支付','每日確認'];
+const defaults = [
+  ['出發前','確認台胞證 / 護照效期'],['出發前','確認華航 CI517 航班與集合時間'],['出發前','確認江蘇飯店與萬達美華飯店住宿資訊'],['出發前','下載離線地圖與行程網頁'],['出發前','確認故宮、熱門景點或門票預約'],
+  ['行李','11月保暖外套、圍巾或薄羽絨'],['行李','好走鞋、襪子、備用鞋墊'],['行李','行動電源、充電線、轉接頭'],['行李','常備藥、暈車藥、腸胃藥'],['行李','雨具、保溫瓶、輕便背包'],
+  ['文件與支付','準備人民幣現金與信用卡'],['文件與支付','確認支付寶 / 微信支付可用'],['文件與支付','備份訂房、機票、保險與緊急聯絡資訊'],['文件與支付','設定手機漫遊或網卡'],
+  ['每日確認','前一晚確認隔日路線與交通時間'],['每日確認','出門前檢查證件、手機、錢包'],['每日確認','每天補水、保暖、確認集合時間'],['每日確認','回飯店後整理照片與行李']
+].map((x,i)=>({id:'d'+i, cat:x[0], text:x[1], done:false}));
+let tasks=[];
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function load(){ try{ tasks=JSON.parse(localStorage.getItem(KEY)) || defaults; } catch(e){ tasks=defaults; } }
+function save(){ localStorage.setItem(KEY, JSON.stringify(tasks)); }
+function render(){
+  const done=tasks.filter(t=>t.done).length,total=tasks.length,pct=total?Math.round(done/total*100):0;
+  $('progressText').textContent=`${done} / ${total} 完成`; $('progressPct').textContent=`${pct}%`; $('barFill').style.width=pct+'%';
+  const html = cats.map(cat=>{ const list=tasks.filter(t=>t.cat===cat); return `<section class="group"><h3 class="group-title"><span>${emoji(cat)} ${cat}</span><span>${list.filter(t=>t.done).length}/${list.length}</span></h3><div class="tasks">${list.length?list.map(taskHtml).join(''):'<div class="empty">尚無事項</div>'}</div></section>`; }).join('');
+  $('taskRoot').innerHTML = html || '<div class="empty">尚無待辦事項</div>';
+}
+function emoji(cat){return {'出發前':'🗓️','行李':'🧳','文件與支付':'💳','每日確認':'✅'}[cat]||'•'}
+function taskHtml(t){return `<article class="task ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask('${t.id}')" aria-label="完成"><div class="text">${esc(t.text)}</div><button class="delete" onclick="deleteTask('${t.id}')">刪除</button></article>`}
+function addTask(){ const text=$('taskText').value.trim(); if(!text){toast('請先輸入待辦內容');return;} tasks.push({id:'u'+Date.now(),cat:$('taskCat').value,text,done:false}); $('taskText').value=''; save(); render(); toast('已新增'); }
+function toggleTask(id){ const t=tasks.find(x=>x.id===id); if(t){t.done=!t.done; save(); render();} }
+function deleteTask(id){ tasks=tasks.filter(t=>t.id!==id); save(); render(); }
+function clearDone(){ tasks=tasks.filter(t=>!t.done); save(); render(); toast('已清除完成項目'); }
+function resetDefaults(){ if(confirm('確定要還原預設清單？目前自訂與勾選狀態會被重設。')){ tasks=defaults.map(t=>({...t})); save(); render(); toast('已還原預設'); } }
+async function copyList(){ const lines=['北京 × 天津 8日自由行 To-Do List']; cats.forEach(cat=>{ const list=tasks.filter(t=>t.cat===cat); lines.push('\n'+cat); list.forEach(t=>lines.push(`${t.done?'☑':'☐'} ${t.text}`)); }); try{ await navigator.clipboard.writeText(lines.join('\n')); toast('已複製清單'); }catch(e){ toast('目前瀏覽器不支援複製'); } }
+function toast(text){ const t=$('toast'); t.textContent=text; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800); }
+$('taskText').addEventListener('keydown', e=>{ if(e.key==='Enter') addTask(); });
+load(); render();
+</script>
+</body>
+</html>
