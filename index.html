@@ -25,6 +25,11 @@ h1 { margin:14px 0 6px; font-size:clamp(2rem, 6vw, 4.5rem); line-height:1.05; le
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:12px 16px; border-radius:999px; text-decoration:none; border:1px solid rgba(10,55,101,.12); background:#fff; color:var(--navy); font-weight:900; box-shadow:0 8px 20px rgba(12,60,110,.10); cursor:pointer; }
 .btn.primary { background:linear-gradient(135deg,var(--navy),#17669a); color:white; border-color:transparent; }
 .btn.soft { background:#eefaff; }
+.quick-tools { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; margin:14px 0 6px; }
+.tool-card { display:grid; grid-template-columns:auto 1fr; gap:10px 12px; align-items:center; padding:16px; border-radius:22px; text-decoration:none; background:rgba(255,255,255,.88); border:1px solid rgba(190,232,247,.9); box-shadow:0 10px 24px rgba(12,60,110,.10); color:var(--navy); }
+.tool-card span { grid-row:1 / span 2; display:grid; place-items:center; width:46px; height:46px; border-radius:16px; background:#eefaff; font-size:1.45rem; }
+.tool-card strong { font-size:1.12rem; font-weight:1000; }
+.tool-card em { font-style:normal; color:#4f6478; font-weight:750; line-height:1.45; }
 .day-nav-wrap { position:sticky; top:0; z-index:50; padding:12px 0 10px; margin:8px -16px 14px; background:linear-gradient(180deg,rgba(230,248,255,.98),rgba(247,252,255,.90)); backdrop-filter: blur(14px); border-bottom:1px solid rgba(11,55,102,.06); }
 .day-nav { display:flex; gap:8px; overflow:auto; padding:0 16px; scrollbar-width:none; }
 .day-nav::-webkit-scrollbar { display:none; }
@@ -77,6 +82,7 @@ h2 { margin:14px 0 8px; font-size:clamp(1.45rem,4.5vw,2.35rem); color:var(--navy
   .section, .info-head { padding-left:16px; padding-right:16px; }
 }
 @media (max-width: 460px) {
+  .quick-tools { grid-template-columns:1fr; }
   .tip-grid { grid-template-columns:1fr; }
   .slot { grid-template-columns:76px 1fr; }
   .slot-label { min-height:70px; }
@@ -96,8 +102,15 @@ h2 { margin:14px 0 8px; font-size:clamp(1.45rem,4.5vw,2.35rem); color:var(--navy
       <a class="btn primary" href="#day-root">🚀 開始查看行程</a>
       <a class="btn soft" href="./北京天津8日自由行_電子行程表.pdf" target="_blank" rel="noopener">📄 開啟 PDF 版</a>
       <button class="btn" type="button" onclick="shareTrip()">📤 分享行程文字</button>
+      <a class="btn soft" href="./currency.html">💱 價錢換算</a>
+      <a class="btn soft" href="./todo.html">✅ To-Do List</a>
     </div>
   </header>
+
+  <section class="quick-tools" aria-label="旅行小工具">
+    <a class="tool-card" href="./currency.html"><span>💱</span><strong>價錢換算</strong><em>人民幣 ↔ 台幣、常用金額與分帳</em></a>
+    <a class="tool-card" href="./todo.html"><span>✅</span><strong>To-Do List</strong><em>出發前、行李、文件支付與每日確認</em></a>
+  </section>
 
   <div class="day-nav-wrap">
     <nav class="day-nav" id="dayNav" aria-label="Day navigation"></nav>
