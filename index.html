@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>北京 × 天津 8日自由行｜私人電子行程表</title>
+<style>
+:root {
+  --sky:#dff6ff; --sky2:#f8fcff; --navy:#0b3766; --navy2:#082a50; --blue:#1e6799;
+  --cream:#fff7e8; --line:#bde9f7; --orange:#f3a044; --card:#ffffff; --muted:#6c7c8d;
+  --shadow:0 14px 40px rgba(9,50,93,.14); --radius:22px;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; color:var(--navy2); background:linear-gradient(180deg,var(--sky),#f7fcff 42%,#ffffff); }
+a { color:inherit; }
+.app { max-width:1100px; margin:0 auto; padding:18px 16px 78px; }
+.hero { position:relative; overflow:hidden; border-radius:30px; padding:28px 20px 22px; background: radial-gradient(circle at 10% 10%, #fff 0 6%, transparent 22%), linear-gradient(135deg,#bdefff,#f7fbff 70%); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.85); }
+.hero::before { content:""; position:absolute; inset:0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160"><path d="M16 60 C70 10 112 120 178 56 C222 14 258 32 306 14" fill="none" stroke="rgba(11,55,102,.18)" stroke-width="3" stroke-dasharray="8 10"/><text x="268" y="28" font-size="24">✈</text><text x="28" y="132" font-size="22">✦</text><text x="218" y="126" font-size="18">✦</text></svg>') center/cover no-repeat; opacity:.75; }
+.hero > * { position:relative; }
+.eyebrow { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.72); color:var(--blue); font-weight:800; letter-spacing:.08em; }
+h1 { margin:14px 0 6px; font-size:clamp(2rem, 6vw, 4.5rem); line-height:1.05; letter-spacing:.04em; color:var(--navy); text-shadow:0 2px 0 rgba(255,255,255,.65); }
+.hero p { margin:0; font-size:1rem; color:#31516c; line-height:1.7; }
+.top-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:12px 16px; border-radius:999px; text-decoration:none; border:1px solid rgba(10,55,101,.12); background:#fff; color:var(--navy); font-weight:900; box-shadow:0 8px 20px rgba(12,60,110,.10); cursor:pointer; }
+.btn.primary { background:linear-gradient(135deg,var(--navy),#17669a); color:white; border-color:transparent; }
+.btn.soft { background:#eefaff; }
+.day-nav-wrap { position:sticky; top:0; z-index:50; padding:12px 0 10px; margin:8px -16px 14px; background:linear-gradient(180deg,rgba(230,248,255,.98),rgba(247,252,255,.90)); backdrop-filter: blur(14px); border-bottom:1px solid rgba(11,55,102,.06); }
+.day-nav { display:flex; gap:8px; overflow:auto; padding:0 16px; scrollbar-width:none; }
+.day-nav::-webkit-scrollbar { display:none; }
+.day-tab { flex:0 0 auto; border:0; padding:10px 14px; border-radius:999px; background:#fff; color:var(--navy); font-weight:950; box-shadow:0 5px 16px rgba(10,55,101,.09); cursor:pointer; }
+.day-tab.active { background:var(--navy); color:#fff; }
+.day-panel { display:grid; grid-template-columns: minmax(0,1.05fr) minmax(330px,.75fr); gap:20px; align-items:start; }
+.info-card, .poster-card { background:rgba(255,255,255,.88); border:1px solid rgba(190,232,247,.9); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+.info-head { padding:22px; background:linear-gradient(135deg,#ffffff,#eaf9ff); border-bottom:1px solid var(--line); }
+.day-kicker { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.day-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; background:var(--cream); border:2px solid rgba(11,55,102,.15); border-radius:14px; font-weight:1000; color:var(--navy); letter-spacing:.04em; font-size:1.15rem; }
+.date-route { font-weight:900; color:#234c73; }
+h2 { margin:14px 0 8px; font-size:clamp(1.45rem,4.5vw,2.35rem); color:var(--navy); }
+.summary { margin:0; color:#4f6478; line-height:1.75; font-weight:650; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.section { padding:18px 22px; border-top:1px solid rgba(189,233,247,.65); }
+.section:first-of-type { border-top:0; }
+.section-title { display:flex; align-items:center; gap:10px; margin:0 0 12px; color:var(--navy); font-size:1.18rem; font-weight:1000; }
+.timeline { display:grid; gap:12px; }
+.slot { display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:stretch; background:linear-gradient(135deg,var(--navy),#0a477b); color:white; border-radius:18px; padding:12px; box-shadow:0 8px 20px rgba(11,55,102,.12); }
+.slot-label { background:var(--cream); color:var(--navy); border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-height:76px; font-weight:1000; }
+.slot-label .icon { font-size:1.45rem; }
+.slot ul { margin:0; padding-left:1.1rem; line-height:1.72; font-weight:760; }
+.slot li:first-child { color:#ffe1a7; font-size:1.05rem; font-weight:1000; }
+.tip-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
+.tip { background:linear-gradient(180deg,#fff7e8,#fffdf8); border:1px solid rgba(11,55,102,.08); border-radius:18px; padding:14px; min-height:145px; }
+.tip strong { display:flex; align-items:center; gap:8px; color:var(--navy); font-size:1.18rem; margin-bottom:8px; }
+.tip p { margin:4px 0; color:#244963; line-height:1.55; font-weight:700; }
+.links-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:10px; }
+.map-link { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; border-radius:16px; text-decoration:none; background:#eefaff; border:1px solid var(--line); font-weight:950; color:var(--navy); }
+.map-link span:last-child { color:#2d85bd; font-size:.95rem; }
+.note { display:flex; gap:10px; align-items:flex-start; padding:12px 14px; background:#eaf8ff; border:1px solid var(--line); border-radius:16px; color:#244963; font-weight:850; line-height:1.6; }
+.poster-card { position:sticky; top:92px; padding:12px; }
+.poster-card img { display:block; width:100%; height:auto; border-radius:18px; box-shadow:0 8px 24px rgba(8,42,80,.13); }
+.poster-title { display:flex; justify-content:space-between; align-items:center; gap:8px; margin:2px 4px 12px; font-weight:1000; color:var(--navy); }
+.mobile-poster { display:none; }
+.footer { margin-top:20px; padding:18px; color:#45677c; line-height:1.7; text-align:center; font-weight:650; }
+.toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px); opacity:0; pointer-events:none; transition:.25s; background:rgba(8,42,80,.96); color:#fff; padding:12px 16px; border-radius:999px; z-index:100; box-shadow:0 14px 30px rgba(0,0,0,.18); font-weight:900; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+@media (max-width: 860px) {
+  .app { padding:12px 12px 84px; }
+  .hero { border-radius:24px; padding:22px 16px; }
+  .day-nav-wrap { margin-left:-12px; margin-right:-12px; }
+  .day-panel { display:block; }
+  .poster-card { display:none; }
+  .mobile-poster { display:block; margin-top:14px; }
+  .tip-grid { grid-template-columns: repeat(2, 1fr); }
+  .links-grid { grid-template-columns: 1fr; }
+  .slot { grid-template-columns:82px 1fr; padding:10px; }
+  .slot ul { padding-left:1rem; }
+  .section, .info-head { padding-left:16px; padding-right:16px; }
+}
+@media (max-width: 460px) {
+  .tip-grid { grid-template-columns:1fr; }
+  .slot { grid-template-columns:76px 1fr; }
+  .slot-label { min-height:70px; }
+  .btn { width:100%; }
+  .top-actions .btn { width:auto; flex:1 1 150px; }
+}
+@media print { .day-nav-wrap, .top-actions, .actions, .poster-card { display:none !important; } .app { max-width:none; } .day-panel { display:block; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="eyebrow">PRIVATE TRIP PAGE｜電子操作版</div>
+    <h1>北京 × 天津 8日自由行</h1>
+    <p>2026/11/3（二）- 11/10（二）｜點選 DAY、Google Maps 連結與本日路線即可操作。行程內容可離線查看，地圖連結需網路。</p>
+    <div class="top-actions">
+      <a class="btn primary" href="#day-root">🚀 開始查看行程</a>
+      <a class="btn soft" href="./北京天津8日自由行_電子行程表.pdf" target="_blank" rel="noopener">📄 開啟 PDF 版</a>
+      <button class="btn" type="button" onclick="shareTrip()">📤 分享行程文字</button>
+    </div>
+  </header>
+
+  <div class="day-nav-wrap">
+    <nav class="day-nav" id="dayNav" aria-label="Day navigation"></nav>
+  </div>
+
+  <main id="day-root" class="day-panel"></main>
+  <footer class="footer">此頁是靜態私人電子行程表：不含追蹤程式，只有在點擊 Google Maps / 分享按鈕時會開啟外部服務。</footer>
+</div>
+<div class="toast" id="toast">已複製</div>
+<script>
+const DAYS = [{"day": 1, "date": "11/3（二）", "place": "桃園 → 北京", "theme": "抵達北京・入住與簋街初體驗", "hotel": "江蘇飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4&destination=%E7%B0%8B%E8%A1%97%20%E5%8C%97%E4%BA%AC&waypoints=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC", "summary": "抵達北京後先安頓行李，晚上以簋街晚餐與輕鬆散步為主。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["13:30 桃園機場第二航廈集合", "提前 2.5 小時辦理登機、託運行李"]}, {"period": "下午", "icon": "🌤️", "items": ["15:35–18:55 華航 CI517", "桃園 TPE → 北京首都機場 PEK", "機上稍作休息，抵達後辦理入境"]}, {"period": "傍晚", "icon": "🌇", "items": ["19:30 前往江蘇飯店辦理入住", "建議搭乘機場快線至東直門，再轉車前往飯店"]}, {"period": "晚上", "icon": "🌙", "items": ["20:30 東直門簋街晚餐與散步", "推薦：北京小吃、麻辣料理、宵夜街氣氛", "22:00 返回飯店休息，為隔日長城行程養足精神"]}], "tips": {"食": ["午餐：機上餐", "晚餐：簋街自由覓食", "可試：烤鴨、涮肉、炸醬麵"], "衣": ["11月北京偏涼", "薄羽絨 / 風衣 / 圍巾", "鞋子以好走為主"], "住": ["江蘇飯店", "先安頓行李、補水休息"], "行": ["飛機＋機場快線＋計程車 / 地鐵", "留意北京交通尖峰時段"]}, "links": [{"name": "簋街", "url": "https://www.google.com/maps/search/?api=1&query=%E7%B0%8B%E8%A1%97%20%E5%8C%97%E4%BA%AC"}, {"name": "北京首都國際機場", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4"}, {"name": "東直門", "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E7%9B%B4%E9%96%80%20%E5%8C%97%E4%BA%AC"}, {"name": "江蘇飯店", "url": "https://www.google.com/maps/search/?api=1&query=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC"}], "note": "今晚以輕鬆適應天氣與作息為主。"}, {"day": 2, "date": "11/4（三）", "place": "北京", "theme": "長城經典日・奧運地標與鼓樓夜色", "hotel": "江蘇飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E5%8C%97%E4%BA%AC%E9%90%98%E9%BC%93%E6%A8%93&waypoints=%E5%85%AB%E9%81%94%E5%B6%BA%E9%95%B7%E5%9F%8E%7C%E5%8C%97%E4%BA%AC%E5%A5%A7%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9C%92", "summary": "早上前往八達嶺長城，下午拍攝奧運地標，晚上到鼓樓與胡同街區散步。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["07:30 飯店早餐後出發", "09:00 八達嶺長城登城參觀", "建議預留 2–3 小時，拍照與步行量較大"]}, {"period": "中午", "icon": "🌤️", "items": ["12:30 長城周邊午餐", "稍作休息，補充水分與體力"]}, {"period": "下午", "icon": "🌥️", "items": ["14:30 奧林匹克公園", "鳥巢、水立方外觀拍照", "可順遊奧林匹克塔周邊"]}, {"period": "晚上", "icon": "🌙", "items": ["18:30 鼓樓大街晚餐與散步", "推薦逛鼓樓、胡同街區與後海周邊", "20:30 返回江蘇飯店休息"]}], "tips": {"食": ["早餐：飯店", "午餐：長城周邊簡餐", "晚餐：鼓樓 / 後海京味餐館"], "衣": ["長城風大、早晚偏冷", "保暖外套、運動鞋", "可攜手套與保溫瓶"], "住": ["江蘇飯店", "今晚續住，方便隔日前往天津"], "行": ["地鐵＋景區接駁 / 計程車", "長城路程較遠，建議提早出發"]}, "links": [{"name": "八達嶺長城", "url": "https://www.google.com/maps/search/?api=1&query=%E5%85%AB%E9%81%94%E5%B6%BA%E9%95%B7%E5%9F%8E"}, {"name": "北京奧林匹克公園", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%BA%AC%E5%A5%A7%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9C%92"}, {"name": "北京鐘鼓樓", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%BA%AC%E9%90%98%E9%BC%93%E6%A8%93"}, {"name": "鼓樓大街", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A8%93%E5%A4%A7%E8%A1%97"}], "note": "長城路段坡度較大，請以輕便與保暖為主。"}, {"day": 3, "date": "11/5（四）", "place": "北京 → 天津 → 北京", "theme": "天津一日小旅行・高鐵快閃漫遊", "hotel": "江蘇飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&waypoints=%E5%8C%97%E4%BA%AC%E5%8D%97%E7%AB%99%7C%E5%A4%A9%E6%B4%A5%E4%BA%94%E5%A4%A7%E9%81%93%7C%E5%A4%A9%E6%B4%A5%E7%93%B7%E6%88%BF%E5%AD%90%7C%E5%A4%A9%E6%B4%A5%E5%8F%A4%E6%96%87%E5%8C%96%E8%A1%97%7C%E5%A4%A9%E6%B4%A5%E4%B9%8B%E7%9C%BC%7C%E5%A4%A9%E6%B4%A5%E7%AB%99", "summary": "搭高鐵往返天津，安排五大道、瓷房子、古文化街與海河沿岸散步。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["07:30 飯店早餐後出發前往北京南站", "08:30 搭高鐵前往天津", "09:30 五大道散步拍照，感受租界建築風情"]}, {"period": "中午", "icon": "🌤️", "items": ["12:00 天津午餐", "推薦：煎餅果子、包子、炸糕等在地小吃", "13:00 可順遊瓷房子外觀"]}, {"period": "下午", "icon": "🌇", "items": ["14:30 古文化街漫遊", "16:00 海河沿岸散步，遠眺天津之眼", "採買伴手禮、體驗天津城市氛圍"]}, {"period": "晚上", "icon": "🌙", "items": ["18:00 前往天津站 / 天津西站返程", "19:00 抵達北京後返回江蘇飯店", "晚餐可於北京自由安排"]}], "tips": {"食": ["早餐：飯店", "午餐：天津特色小吃", "晚餐：回北京後自由用餐"], "衣": ["一日往返步行較多", "輕便外套、好走鞋", "可攜行動電源"], "住": ["江蘇飯店", "天津當日來回，不更換飯店"], "行": ["高鐵＋地鐵＋步行", "提早抵達車站，預留安檢時間"]}, "links": [{"name": "五大道", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E6%B4%A5%E4%BA%94%E5%A4%A7%E9%81%93"}, {"name": "瓷房子", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E6%B4%A5%E7%93%B7%E6%88%BF%E5%AD%90"}, {"name": "古文化街", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E6%B4%A5%E5%8F%A4%E6%96%87%E5%8C%96%E8%A1%97"}, {"name": "天津之眼", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E6%B4%A5%E4%B9%8B%E7%9C%BC"}], "note": "天津景點較分散，搭配高鐵與地鐵最省時。"}, {"day": 4, "date": "11/6（五）", "place": "北京", "theme": "皇家古蹟與胡同慢遊日", "hotel": "江蘇飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E4%BB%80%E5%89%8E%E6%B5%B7&waypoints=%E5%A4%A9%E5%A3%87%E5%85%AC%E5%9C%92%7C%E9%9B%8D%E5%92%8C%E5%AE%AE%7C%E6%81%AD%E7%8E%8B%E5%BA%9C", "summary": "天壇、雍和宮與恭王府感受古都建築，傍晚在什剎海與胡同放慢步調。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["08:00 天壇參觀", "建議先走祈年殿、回音壁與主要中軸景點"]}, {"period": "中午", "icon": "🌤️", "items": ["11:00 雍和宮參觀", "12:30 國子監 / 五道營一帶午餐", "寺廟區域建議安靜參觀"]}, {"period": "下午", "icon": "🌇", "items": ["14:00 恭王府", "欣賞王府園林與清代宅邸建築"]}, {"period": "晚上", "icon": "🌙", "items": ["16:30 什剎海散步", "可順遊後海、銀錠橋與胡同巷弄", "18:30 晚餐後返回江蘇飯店"]}], "tips": {"食": ["早餐：飯店", "午餐：國子監周邊", "晚餐：什剎海 / 後海京味餐館"], "衣": ["舒適步行鞋＋保暖外套", "寺廟參觀穿著得體即可"], "住": ["江蘇飯店", "今晚續住"], "行": ["地鐵＋步行", "各景點距離適中，安排較輕鬆"]}, "links": [{"name": "天壇公園", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E5%A3%87%E5%85%AC%E5%9C%92"}, {"name": "雍和宮", "url": "https://www.google.com/maps/search/?api=1&query=%E9%9B%8D%E5%92%8C%E5%AE%AE"}, {"name": "恭王府", "url": "https://www.google.com/maps/search/?api=1&query=%E6%81%AD%E7%8E%8B%E5%BA%9C"}, {"name": "什剎海", "url": "https://www.google.com/maps/search/?api=1&query=%E4%BB%80%E5%89%8E%E6%B5%B7"}], "note": "今日適合放慢步調，感受北京古都文化。"}, {"day": 5, "date": "11/7（六）", "place": "北京", "theme": "故宮中軸線・歷史文化日", "hotel": "萬達美華飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E6%B1%9F%E8%98%87%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E8%90%AC%E9%81%94%E7%BE%8E%E8%8F%AF%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&waypoints=%E6%95%85%E5%AE%AE%E5%8D%9A%E7%89%A9%E9%99%A2%7C%E6%99%AF%E5%B1%B1%E5%85%AC%E5%9C%92%7C%E5%9C%B0%E5%A3%87%E5%85%AC%E5%9C%92%7C%E4%BA%94%E5%9B%9B%E5%A4%A7%E8%A1%97", "summary": "上午走故宮中軸線，午後到景山眺望故宮，再轉往地壇與五四大街，晚上換住萬達美華飯店。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["08:00 故宮博物院", "建議事先預約，依中軸線參觀主要宮殿", "重點：太和殿、乾清宮、御花園"]}, {"period": "中午", "icon": "🌤️", "items": ["12:30 景山公園", "登高俯瞰故宮全景，適合拍攝中軸線景色"]}, {"period": "下午", "icon": "☀️", "items": ["15:00 地壇公園慢遊", "16:30 五四大街散步", "可順看北大紅樓 / 新文化運動紀念館周邊"]}, {"period": "晚上", "icon": "🌙", "items": ["18:30 晚餐後前往萬達美華飯店入住", "整理行李，準備後續行程"]}], "tips": {"食": ["早餐：飯店", "午餐：故宮 / 景山周邊", "晚餐：東城區京味餐館"], "衣": ["步行時間長", "好走鞋、薄外套", "博物館與公園兼具，注意溫差"], "住": ["萬達美華飯店", "今日換飯店，記得先確認行李"], "行": ["地鐵＋步行 / 計程車", "故宮熱門，建議一早進場"]}, "links": [{"name": "故宮博物院", "url": "https://www.google.com/maps/search/?api=1&query=%E6%95%85%E5%AE%AE%E5%8D%9A%E7%89%A9%E9%99%A2"}, {"name": "景山公園", "url": "https://www.google.com/maps/search/?api=1&query=%E6%99%AF%E5%B1%B1%E5%85%AC%E5%9C%92"}, {"name": "地壇公園", "url": "https://www.google.com/maps/search/?api=1&query=%E5%9C%B0%E5%A3%87%E5%85%AC%E5%9C%92"}, {"name": "北大紅樓", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E5%A4%A7%E7%B4%85%E6%A8%93"}], "note": "故宮需提早預約，證件與訂單請先準備好。"}, {"day": 6, "date": "11/8（日）", "place": "北京", "theme": "園林湖景與校園街區日", "hotel": "萬達美華飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E8%90%AC%E9%81%94%E7%BE%8E%E8%8F%AF%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E5%8D%97%E9%91%BC%E9%BC%93%E5%B7%B7&waypoints=%E9%A0%A4%E5%92%8C%E5%9C%92%7C%E9%87%A3%E9%AD%9A%E5%8F%B0%E9%8A%80%E6%9D%8F%E5%A4%A7%E9%81%93%7C%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8%7C%E5%8C%97%E4%BA%AC%E5%A5%A7%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9C%92", "summary": "頤和園湖景、釣魚台銀杏、清華周邊與奧林匹克夜景，最後到南鑼鼓巷晚餐。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["08:00 頤和園", "建議遊覽昆明湖、長廊、佛香閣", "可搭配湖畔散步與拍照"]}, {"period": "中午", "icon": "☀️", "items": ["12:30 釣魚台銀杏大道拍照", "13:30 海淀區午餐", "之後前往清華大學周邊"]}, {"period": "下午", "icon": "🌤️", "items": ["15:00 清華大學周邊散步", "17:00 奧林匹克公園夜景", "鳥巢、水立方點燈後特別適合拍照"]}, {"period": "晚上", "icon": "🌙", "items": ["19:30 南鑼鼓巷晚餐與逛街", "體驗胡同商圈、小吃與文創店", "21:00 返回萬達美華飯店"]}], "tips": {"食": ["早餐：飯店", "午餐：海淀區簡餐", "晚餐：南鑼鼓巷小吃 / 餐館"], "衣": ["日夜溫差較大", "洋蔥式穿搭、好走鞋"], "住": ["萬達美華飯店", "今晚續住"], "行": ["地鐵＋步行 / 計程車", "今日跨區移動較多，建議掌握時間"]}, "links": [{"name": "頤和園", "url": "https://www.google.com/maps/search/?api=1&query=%E9%A0%A4%E5%92%8C%E5%9C%92"}, {"name": "清華大學", "url": "https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8"}, {"name": "鳥巢", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%BA%AC%E9%B3%A5%E5%B7%A2"}, {"name": "南鑼鼓巷", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%97%E9%91%BC%E9%BC%93%E5%B7%B7"}], "note": "若晚間行程較滿，可依體力調整奧林匹克公園停留時間。"}, {"day": 7, "date": "11/9（一）", "place": "北京", "theme": "自然景觀與城市夜色日", "hotel": "萬達美華飯店", "route": "https://www.google.com/maps/dir/?api=1&origin=%E8%90%AC%E9%81%94%E7%BE%8E%E8%8F%AF%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E7%89%9B%E8%A1%97&waypoints=%E5%8C%97%E6%B5%B7%E5%85%AC%E5%9C%92%7C%E5%9D%A1%E5%B3%B0%E5%B6%BA%7C%E4%B8%AD%E5%9C%8B%E5%B0%8A", "summary": "北海公園湖景、坡峰嶺自然步道、CBD 城市景觀與牛街特色晚餐。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["08:00 北海公園", "沿湖散步，可遠看白塔與古典園林景色"]}, {"period": "中午", "icon": "🌤️", "items": ["10:30 前往坡峰嶺", "自然步道賞景，視天氣與交通彈性調整", "13:00 郊區午餐，短暫休息"]}, {"period": "下午", "icon": "🌥️", "items": ["16:30 中國尊 / CBD 區域打卡", "可欣賞北京現代城市天際線"]}, {"period": "晚上", "icon": "🌙", "items": ["18:30 牛街晚餐", "推薦清真小吃、燒餅、牛羊料理", "20:30 返回萬達美華飯店"]}], "tips": {"食": ["早餐：飯店", "午餐：郊區簡餐", "晚餐：牛街特色美食"], "衣": ["戶外停留時間較長", "保暖外套、舒適步行鞋", "可攜少量零食與飲水"], "住": ["萬達美華飯店", "今晚續住"], "行": ["地鐵＋計程車 / 包車", "坡峰嶺路程較長，建議提早出發"]}, "links": [{"name": "北海公園", "url": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E5%85%AC%E5%9C%92"}, {"name": "坡峰嶺", "url": "https://www.google.com/maps/search/?api=1&query=%E5%9D%A1%E5%B3%B0%E5%B6%BA"}, {"name": "中國尊", "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E5%9C%8B%E5%B0%8A"}, {"name": "牛街", "url": "https://www.google.com/maps/search/?api=1&query=%E7%89%9B%E8%A1%97"}], "note": "今日景點距離較遠，可依實際體力縮短郊區停留時間。"}, {"day": 8, "date": "11/10（二）", "place": "北京 → 返家", "theme": "市區經典散步日・收心返程", "hotel": "甜蜜的家", "route": "https://www.google.com/maps/dir/?api=1&origin=%E8%90%AC%E9%81%94%E7%BE%8E%E8%8F%AF%E9%A3%AF%E5%BA%97%20%E5%8C%97%E4%BA%AC&destination=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4&waypoints=%E5%A4%A9%E5%AE%89%E9%96%80%E5%BB%A3%E5%A0%B4%7C%E7%8E%8B%E5%BA%9C%E4%BA%95%7C%E5%89%8D%E9%96%80%E5%A4%A7%E8%A1%97", "summary": "最後一天以退房、天安門周邊、王府井與前門大街為主，依航班時間彈性前往機場。", "schedule": [{"period": "早上", "icon": "☀️", "items": ["08:00 辦理退房 / 寄放行李", "09:00 天安門廣場與周邊散步", "可依人潮調整停留時間"]}, {"period": "中午", "icon": "🌤️", "items": ["11:30 王府井逛街與午餐", "適合採買伴手禮、老字號點心與紀念品"]}, {"period": "下午", "icon": "🌇", "items": ["14:00 前門大街慢遊", "可順逛大柵欄，感受老北京商業街風情"]}, {"period": "晚上", "icon": "🌙", "items": ["依實際航班時間前往機場", "提早取回行李、預留安檢與通關時間", "旅程結束，返回甜蜜的家"]}], "tips": {"食": ["早餐：飯店", "午餐：王府井商圈", "晚餐：依航班安排 / 機上餐"], "衣": ["以輕便好整理為主", "方便移動與購物的穿搭"], "住": ["甜蜜的家", "今日返程，不再安排住宿"], "行": ["地鐵＋步行＋前往機場", "務必預留機場通關時間"]}, "links": [{"name": "天安門廣場", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E5%AE%89%E9%96%80%E5%BB%A3%E5%A0%B4"}, {"name": "王府井", "url": "https://www.google.com/maps/search/?api=1&query=%E7%8E%8B%E5%BA%9C%E4%BA%95"}, {"name": "前門大街", "url": "https://www.google.com/maps/search/?api=1&query=%E5%89%8D%E9%96%80%E5%A4%A7%E8%A1%97"}, {"name": "大柵欄", "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%9F%B5%E6%AC%84"}], "note": "最後一天建議以輕鬆行程為主，方便整理行李與返程。"}];
+const POSTERS = {"1": "assets/day1.webp", "2": "assets/day2.webp", "3": "assets/day3.webp", "4": "assets/day4.webp", "5": "assets/day5.webp", "6": "assets/day6.webp", "7": "assets/day7.webp", "8": "assets/day8.webp"};
+const ICONS = {"食":"🍽️", "衣":"🧥", "住":"🏨", "行":"🚇"};
+let current = 1;
+const ESC_MAP = {"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;"};
+function esc(s) { return String(s).replace(/[&<>\"']/g, c => ESC_MAP[c]); }
+function showToast(text) { const t=document.getElementById('toast'); t.textContent=text; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800); }
+function dayText(day) {
+  return `北京 × 天津 8日自由行
+DAY ${day.day}｜${day.date} ${day.place}
+${day.theme}
+
+` +
+    day.schedule.map(s => `${s.period}：` + s.items.join(' / ')).join('\\n') +
+    `
+
+住宿：${day.hotel}
+小提醒：${day.note}`;
+}
+async function copyDay() {
+  const day = DAYS.find(d=>d.day===current);
+  try { await navigator.clipboard.writeText(dayText(day)); showToast('已複製本日行程'); }
+  catch(e) { showToast('目前瀏覽器不支援複製'); }
+}
+async function shareTrip() {
+  const day = DAYS.find(d=>d.day===current) || DAYS[0];
+  const text = dayText(day);
+  if (navigator.share) { try { await navigator.share({title:'北京 × 天津 8日自由行', text}); } catch(e) {} }
+  else { try { await navigator.clipboard.writeText(text); showToast('已複製，可貼給同行者'); } catch(e) { showToast('目前瀏覽器不支援分享'); } }
+}
+function renderNav() {
+  const nav = document.getElementById('dayNav');
+  nav.innerHTML = DAYS.map(d => `<button class="day-tab ${d.day===current?'active':''}" type="button" onclick="selectDay(${d.day})">DAY ${d.day}<br><small>${esc(d.date)}</small></button>`).join('');
+}
+function renderDay() {
+  const day = DAYS.find(d=>d.day===current);
+  const schedules = day.schedule.map(s => `<article class="slot"><div class="slot-label"><span class="icon">${s.icon}</span><span>${esc(s.period)}</span></div><ul>${s.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('');
+  const tips = Object.entries(day.tips).map(([k, arr]) => `<article class="tip"><strong><span>${ICONS[k]||'•'}</span>${esc(k)}</strong>${arr.map(x=>`<p>${esc(x)}</p>`).join('')}</article>`).join('');
+  const links = day.links.map(l => `<a class="map-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>📍 ${esc(l.name)}</span><span>開啟地圖 ↗</span></a>`).join('');
+  const poster = `<img src="${POSTERS[day.day]}" alt="DAY ${day.day} 行程圖">`;
+  document.getElementById('day-root').innerHTML = `
+    <section class="info-card">
+      <div class="info-head">
+        <div class="day-kicker"><span class="day-badge">DAY ${day.day}</span><span class="date-route">${esc(day.date)}｜${esc(day.place)}</span></div>
+        <h2>${esc(day.theme)}</h2>
+        <p class="summary">${esc(day.summary)}</p>
+        <div class="actions">
+          <a class="btn primary" href="${esc(day.route)}" target="_blank" rel="noopener">🗺️ 開啟本日路線</a>
+          <button class="btn" type="button" onclick="copyDay()">📋 複製本日行程</button>
+          <a class="btn soft" href="${POSTERS[day.day]}" target="_blank" rel="noopener">🖼️ 開啟一頁圖</a>
+        </div>
+      </div>
+      <div class="section"><h3 class="section-title">⏱️ 今日時間表</h3><div class="timeline">${schedules}</div></div>
+      <div class="section"><h3 class="section-title">🧳 食衣住行提醒</h3><div class="tip-grid">${tips}</div></div>
+      <div class="section"><h3 class="section-title">📍 推薦景點連結</h3><div class="links-grid">${links}</div></div>
+      <div class="section"><div class="note"><span>🔔</span><span>小提醒：${esc(day.note)}</span></div><div class="mobile-poster poster-card"><div class="poster-title"><span>DAY ${day.day} 一頁圖</span></div>${poster}</div></div>
+    </section>
+    <aside class="poster-card"><div class="poster-title"><span>DAY ${day.day} 一頁圖</span><span>可長按儲存</span></div>${poster}</aside>`;
+}
+function selectDay(n) { current=n; renderNav(); renderDay(); location.hash = 'day' + n; window.scrollTo({top: document.querySelector('.day-nav-wrap').offsetTop, behavior:'smooth'}); }
+function boot() {
+  const m = location.hash.match(/day(\d+)/i); if (m) { const n=Number(m[1]); if (DAYS.some(d=>d.day===n)) current=n; }
+  renderNav(); renderDay();
+}
+boot();
+</script>
+</body>
+</html>
