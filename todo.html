@@ -17,6 +17,7 @@
   <p>可勾選、刪除或新增事項。資料只存在這台手機 / 電腦的瀏覽器，不會上傳到任何伺服器；適合同行者各自管理自己的準備進度。</p>
   <div class="top-actions">
     <a class="btn primary" href="./index.html">← 回行程首頁</a>
+    <a class="btn soft" href="./info.html">📘 行前資訊</a>
     <a class="btn soft" href="./currency.html">💱 價錢換算</a>
   </div>
 </header>
@@ -49,11 +50,34 @@ const defaults = [
   ['文件與支付','準備人民幣現金與信用卡'],['文件與支付','確認支付寶 / 微信支付可用'],['文件與支付','備份訂房、機票、保險與緊急聯絡資訊'],['文件與支付','設定手機漫遊或網卡'],
   ['每日確認','前一晚確認隔日路線與交通時間'],['每日確認','出門前檢查證件、手機、錢包'],['每日確認','每天補水、保暖、確認集合時間'],['每日確認','回飯店後整理照片與行李']
 ].map((x,i)=>({id:'d'+i, cat:x[0], text:x[1], done:false}));
+// 115/10/03 版新增（攜帶物品與預約提醒）
+const DEFAULTS_VER = '2';
+const VER_KEY = 'bt_trip_todo_defaults_ver';
+const added = [
+  ['出發前','兌換人民幣 1 萬元'],['出發前','故宮：10/31（六）20:00 開放預約 11/7 場次（DAY 5）'],['出發前','八達嶺長城門票與纜車線上預約（DAY 2）'],['出發前','恭王府線上購票（DAY 4）'],['出發前','確認回程華航 CI518（11/10 20:25）'],
+  ['行李','大陸用插座轉接頭'],['行李','相機（含電池）'],['行李','盥洗用具、衣服、藥品'],['行李','軟式拖鞋、泳裝'],['行李','老花眼鏡、墨鏡'],['行李','洋傘、帽子、輕便雨衣'],['行李','血糖機、溫度計、心跳機'],['行李','桌球拍'],['行李','摺疊式小椅子、活動手杖'],
+  ['文件與支付','護照、台胞證、健保卡（備用相片）'],['文件與支付','隨身新台幣 20,000 元或人民幣 4,000 元'],
+  ['每日確認','抵達後在機場地鐵站買北京一卡通（¥100）'],['每日確認','預約天安門廣場：11/3–11/9 間預約 11/10 參觀'],['每日確認','回程前退北京一卡通押金']
+].map((x,i)=>({id:'v2_'+i, cat:x[0], text:x[1], done:false}));
+defaults.push(...added.map(t=>({...t})));
 let tasks=[];
 function $(id){return document.getElementById(id)}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function load(){ try{ tasks=JSON.parse(localStorage.getItem(KEY)) || defaults; } catch(e){ tasks=defaults; } }
-function save(){ localStorage.setItem(KEY, JSON.stringify(tasks)); }
+function load(){
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY)); } catch(e) { saved = null; }
+  if (Array.isArray(saved)) {
+    tasks = saved;
+    let ver = null; try { ver = localStorage.getItem(VER_KEY); } catch(e) {}
+    if (ver !== DEFAULTS_VER) { // 舊清單保留勾選狀態，只補上 10/03 版新增的預設項目
+      const ids = new Set(tasks.map(t => t.id));
+      added.filter(t => !ids.has(t.id)).forEach(t => tasks.push({...t}));
+      save();
+    }
+  } else { tasks = defaults.map(t => ({...t})); }
+  try { localStorage.setItem(VER_KEY, DEFAULTS_VER); } catch(e) {}
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(tasks)); } catch(e) {} }
 function render(){
   const done=tasks.filter(t=>t.done).length,total=tasks.length,pct=total?Math.round(done/total*100):0;
   $('progressText').textContent=`${done} / ${total} 完成`; $('progressPct').textContent=`${pct}%`; $('barFill').style.width=pct+'%';

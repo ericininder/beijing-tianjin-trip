@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>景點攻略｜北京 × 天津 8日自由行</title>
+<style>
+:root{--sky:#dff6ff;--navy:#0b3766;--navy2:#082a50;--blue:#1e6799;--cream:#fff7e8;--line:#bde9f7;--orange:#f3a044;--shadow:0 14px 40px rgba(9,50,93,.14);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--navy2);background:linear-gradient(180deg,var(--sky),#f7fcff 42%,#fff)}
+a{color:inherit}.app{max-width:1040px;margin:0 auto;padding:18px 16px 72px}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:26px 20px 22px;background:radial-gradient(circle at 10% 12%,#fff 0 7%,transparent 23%),linear-gradient(135deg,#bdefff,#f7fbff 70%);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.85)}
+.hero:before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160"><path d="M16 60 C70 10 112 120 178 56 C222 14 258 32 306 14" fill="none" stroke="rgba(11,55,102,.18)" stroke-width="3" stroke-dasharray="8 10"/><text x="268" y="28" font-size="24">✈</text><text x="28" y="132" font-size="22">✦</text><text x="218" y="126" font-size="18">✦</text></svg>') center/cover no-repeat;opacity:.75}
+.hero>*{position:relative}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.72);color:var(--blue);font-weight:900;letter-spacing:.08em}
+h1{margin:14px 0 6px;font-size:clamp(2rem,6vw,4rem);line-height:1.05;letter-spacing:.03em;color:var(--navy);text-shadow:0 2px 0 rgba(255,255,255,.65)}
+.hero p{margin:0;color:#31516c;line-height:1.7;font-weight:700}
+.top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 16px;border-radius:999px;text-decoration:none;border:1px solid rgba(10,55,101,.12);background:#fff;color:var(--navy);font-weight:950;box-shadow:0 8px 20px rgba(12,60,110,.10);cursor:pointer;font-size:1rem}
+.btn.primary{background:linear-gradient(135deg,var(--navy),#17669a);color:#fff;border-color:transparent}.btn.soft{background:#eefaff}
+.chips-wrap{position:sticky;top:0;z-index:20;margin:12px -16px 4px;padding:10px 0;background:linear-gradient(180deg,rgba(230,248,255,.98),rgba(247,252,255,.92));backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,55,102,.06)}
+.chips{display:flex;gap:8px;overflow:auto;padding:0 16px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:9px 14px;border-radius:999px;background:#fff;color:var(--navy);font-weight:950;text-decoration:none;box-shadow:0 5px 16px rgba(10,55,101,.09);font-size:.95rem}
+.block{margin-top:22px}
+.block-head{display:flex;align-items:center;gap:12px;margin:0 4px 12px}
+.block-head .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:16px;background:var(--cream);border:1px solid rgba(11,55,102,.1);font-size:1.4rem;flex:0 0 auto}
+.block-head h2{margin:0;color:var(--navy);font-size:clamp(1.3rem,4vw,1.8rem)}
+.block-head p{margin:2px 0 0;color:#4f6478;font-weight:700;line-height:1.5}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:rgba(255,255,255,.92);border:1px solid rgba(190,232,247,.9);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card.wide{grid-column:1/-1}
+.card-head{padding:16px 18px 12px;background:linear-gradient(135deg,#fff,#eaf9ff);border-bottom:1px solid var(--line)}
+.card-head h3{margin:0;color:var(--navy);font-size:1.15rem;font-weight:1000;line-height:1.4}
+.badge{display:inline-flex;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--cream);border:1px solid rgba(243,160,68,.35);color:#7a4a10;font-weight:900;font-size:.88rem}
+.card-body{padding:14px 18px 16px;display:grid;gap:12px}
+.card-body ul,.card-body ol{margin:0;padding-left:1.2rem;line-height:1.7;color:#244963;font-weight:720}
+.card-body li{margin:3px 0}
+.card-body li strong{color:var(--navy)}
+.callout{display:flex;gap:10px;padding:10px 12px;background:#fff7e8;border:1px solid rgba(243,160,68,.3);border-radius:14px;color:#5a3a10;font-weight:850;line-height:1.6}
+.maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.map-link{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:14px;text-decoration:none;background:#eefaff;border:1px solid var(--line);font-weight:950;color:var(--navy);font-size:.95rem;line-height:1.35}
+.map-link span:last-child{color:#2d85bd;flex:0 0 auto}
+.inner-links{display:flex;flex-wrap:wrap;gap:8px}
+.inner-links .btn{min-height:40px;padding:9px 14px;font-size:.95rem}
+.footer{margin-top:22px;text-align:center;color:#45677c;line-height:1.7;font-weight:650}
+@media(max-width:780px){.app{padding:12px 12px 72px}.hero{border-radius:24px;padding:22px 16px}.chips-wrap{margin-left:-12px;margin-right:-12px}.cards{grid-template-columns:1fr}.btn{flex:1 1 140px}}
+@media(max-width:420px){.maps{grid-template-columns:1fr}}
+@media print{.chips-wrap,.top-actions,.inner-links{display:none!important}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+  <div class="eyebrow">TRIP GUIDE｜景點攻略</div>
+  <h1>景點攻略</h1>
+  <p>整理自 115/10/03 22:00 版行程的附註與參考資料：八達嶺交通、天津景點、北京銀杏與商圈、頤和園遊船、前門路線。每個地點都可直接開 Google Maps。</p>
+  <div class="top-actions">
+    <a class="btn primary" href="./index.html">← 回行程首頁</a>
+    <a class="btn soft" href="./info.html">📘 行前資訊</a>
+    <a class="btn soft" href="./todo.html">✅ To-Do List</a>
+  </div>
+</header>
+<div class="chips-wrap"><nav class="chips" id="chips" aria-label="章節"></nav></div>
+<main id="root"></main>
+<footer class="footer">票價、開放時間與交通資訊以現場及官方最新公告為準。</footer>
+</div>
+<script>
+const M = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+
+const SECTIONS = [
+{
+  id: 'badaling', chip: '八達嶺', icon: '🏯', title: '附註一｜八達嶺長城交通', sub: 'DAY 2（11/4）使用',
+  cards: [
+    { title: '搭高鐵前往（推薦）', badge: '京張高鐵，最高時速 350 公里', wide: true, ol: true, lines: [
+      '從飯店出發',
+      '搭地鐵 2 或 4 號線到西直門站',
+      '出站找高鐵北京北站（地下一層與西直門站 2、4、13 號線直接相連）',
+      '購買高鐵票：<strong>北京北站 → 八達嶺長城站</strong>',
+      '<strong>最好提早 15–20 分鐘抵達高鐵站</strong>',
+      '車程約 19–38 分鐘到八達嶺長城站（世界最深的高鐵地下車站，埋深 102 公尺）',
+      '出站到地面要搭多段電梯約 8 分鐘（其中三部扶梯長 82 公尺、提升 46 公尺，是中國最長高鐵電扶梯）',
+      '抵達八達嶺長城景區門口',
+      '購票（來回覽車票＋景區門票）後進入景區'
+    ], maps: [['西直門站', '西直門站 北京'], ['北京北站', '北京北站'], ['八達嶺長城站', '八達嶺長城站'], ['八達嶺長城', '八達嶺長城']] },
+    { title: '票價', lines: ['高鐵二等座約 ¥23–31（單程）', '景區門票 ¥35（淡季），60 歲以上免門票', '北線空中索道（纜車）來回 ¥140、單程 ¥100：從滾天溝停車場出發，直達北八樓（好漢坡附近）'], maps: [['滾天溝停車場', '八達嶺長城 滾天溝停車場']] },
+    { title: '如果報當地旅行團', lines: ['問清楚抵達長城後的遊覽時間是否只有 1.5 小時', '到景點是否另收覽車費、影像（照片）費'] }
+  ]
+},
+{
+  id: 'tianjin', chip: '天津', icon: '🎡', title: '附註二｜天津旅遊參考景點', sub: 'DAY 3（11/5）使用',
+  cards: [
+    { title: '五大道・觀光馬車', lines: ['<strong>乘車：</strong>民園體育場（重慶道入口出發）', '<strong>時間：</strong>約 30 分鐘，有講解員導覽', '<strong>路線：</strong>重慶道、昆明路、常德道、衡陽路一帶', '<strong>營業：</strong>約 08:30 / 09:00 – 18:00 / 18:30', '五大道街區免門票、全天開放；馬車另外現場收費約 ¥80'], maps: [['民園體育場', '民園體育場 天津'], ['五大道', '天津五大道']] },
+    { title: '天津之眼', lines: ['總高約 120 公尺（約 35 層樓），輪體直徑 110 公尺', '轉一圈約 28–30 分鐘，晴天可遠眺方圓 40 公里', '成人約 ¥70，09:30 – 21:30 / 22:00'], maps: [['天津之眼', '天津之眼']] },
+    { title: '觀光巴士', badge: '白天 ¥30／晚上 ¥50', lines: ['<strong>352 路「海河風景線」：</strong>全程約 70 分鐘，起訖津塔巴士總站；可在津灣廣場、瓷房子、北安橋、古文化街碼頭等站下車', '<strong>雙層敞篷觀光巴士：</strong>天津交通集團營運，從天津之眼橋下發車，環線約 40 分鐘，約新台幣 141 元起'], maps: [['津塔', '天津津塔'], ['天津之眼', '天津之眼']] },
+    { title: '海河遊船', lines: ['乘船欣賞兩岸歷史建築與現代風光，串聯天津之眼、解放橋、古文化街', '<strong>碼頭：</strong>天津站碼頭、古文化街碼頭、大悲院碼頭', '日間觀光 / 夜景遊，航程約 50 分鐘', '成人 ¥80 起，夜景遊價格可能不同'], maps: [['天津站碼頭', '海河遊船 天津站碼頭'], ['古文化街碼頭', '海河遊船 古文化街碼頭']] },
+    { title: '津灣廣場・義大利風情區・泰安道', lines: ['地鐵 3 號線到津灣廣場一帶，可走到義大利風情區', '泰安道歷史建築群（泰安道五大院，網紅景點）', '天津站 1 公里內：馬可波羅廣場、北安橋、津灣廣場、解放橋、獅子林橋'], maps: [['津灣廣場', '津灣廣場 天津'], ['意式風情區', '天津意式風情區'], ['泰安道五大院', '泰安道五大院 天津'], ['解放橋', '解放橋 天津']] },
+    { title: '鐘書閣（現實版霍格華茲書店）★', badge: '10:00–21:00｜免費', lines: ['天津意式風情街，河北區民族路 39 號', '鏡面天花板加交錯線條、紅磚牆，三層樓每層都是不同布景，像走進魔法書院', '建議晚上去，亮燈後更夢幻'], maps: [['鐘書閣', '天津鐘書閣 意式風情區']] },
+    { title: '海河夜景・大光明橋・世紀鐘', lines: ['大光明橋一帶：網紅景點，歐式建築、大樓群與河景很棒', '世紀鐘、天津之眼都在海河沿岸'], maps: [['大光明橋', '大光明橋 天津'], ['世紀鐘', '天津世紀鐘']] },
+    { title: '和平路步行街（金街）', lines: ['和平路與濱江道組成「金十字」商圈，全長超過 1.3 公里', '天津勸業場、特色建築、穹頂星巴克（和平路 237 號，可能是全球第二大）、大銅錢'], maps: [['和平路步行街', '和平路步行街 天津'], ['天津勸業場', '天津勸業場']] },
+    { title: '濱海圖書館', badge: '離市區約 50 公里', wide: true, lines: ['號稱全球第 7 美圖書館（新北投圖書館第 5 名），時代雜誌推薦百大必訪景點，位於濱海文化中心（五館一廊）', '<strong>開放：</strong>週二至週日 10:00–18:00；週一上午閉館、14:00–18:00 開放（法定節假日除外）', '<strong>地址：</strong>天津市濱海新區中心商務區旭升路 347 號', '<strong>地鐵：</strong>津濱輕軌 9 號線市民廣場站，步行約 20 分鐘；或泰達站轉計程車 / 公車', '<strong>高鐵：</strong>從天津站搭到濱海站或塘沽站，再轉計程車或公車', '<strong>計程車：</strong>從天津市區約 33 分鐘以上', '室內不可用相機，但可以用手機拍照；圖書館內請輕聲細語'], maps: [['濱海圖書館', '天津濱海圖書館'], ['市民廣場站', '市民廣場站 天津'], ['濱海站', '天津濱海站']] },
+    { title: '參考攻略', lines: ['孟游記：天津旅行攻略', '大海去旅行：天津遊'] }
+  ]
+},
+{
+  id: 'ginkgo', chip: '銀杏', icon: '🍂', title: '附註三｜北京銀杏（10 月底 – 11 月中）', sub: '行程期間正好是銀杏季',
+  cards: [
+    { title: '市區銀杏地點', wide: true, ol: true, lines: [
+      '故宮西南、西北角樓',
+      '中山公園',
+      '雍和宮',
+      '地壇公園銀杏大道：數百公尺、紅色宮牆，10/30 銀杏節開幕，門票 ¥2（DAY 5）',
+      '奧林匹克公園',
+      '三里屯東五街',
+      '釣魚台國賓館外牆銀杏大道（DAY 6）',
+      '國家植物園內 / 十方普覺寺（臥佛寺）2 棵 800 多年銀杏，旁有櫻桃溝景區；西郊線「國家植物園」站，或公車 505、360、318、698 路',
+      '石塔寺（石刻博物館旁）'
+    ], maps: [['故宮角樓', '故宮角樓'], ['中山公園', '北京中山公園'], ['雍和宮', '雍和宮'], ['地壇公園', '地壇公園'], ['奧林匹克公園', '北京奧林匹克公園'], ['三里屯東五街', '三里屯東五街'], ['釣魚台銀杏大道', '釣魚台銀杏大道'], ['國家植物園（北園）', '國家植物園 北園'], ['臥佛寺', '臥佛寺 北京'], ['石刻藝術博物館', '北京石刻藝術博物館']] }
+  ]
+},
+{
+  id: 'beijing', chip: '北京景點', icon: '🏙️', title: '附註三｜北京市區參考景點', sub: '',
+  cards: [
+    { title: '鳥巢・水立方', lines: ['地鐵 8 號線「奧體中心」或「奧林匹克公園」站', '鳥巢（國家體育場）可入內參觀場館、登觀景台俯瞰奧林匹克公園'], maps: [['鳥巢', '北京鳥巢'], ['水立方', '水立方 北京']] },
+    { title: '長安街・1 路公車', lines: ['搭北京著名的 1 路公車沿長安街行駛，是飽覽沿途街景最推薦、最划算的方式'], maps: [['長安街', '長安街 北京']] },
+    { title: '亮馬河國際風情水岸', badge: '類似法國塞納河', lines: ['東三環亮馬橋划船、燕莎碼頭遊船', '<strong>燕莎碼頭：</strong>10 號線亮馬橋站，步行兩三分鐘到河岸', '<strong>藍港碼頭：</strong>14 號線棗營站，步行約 8 分鐘到登船點'], maps: [['亮馬河國際風情水岸', '亮馬河國際風情水岸'], ['燕莎碼頭', '燕莎碼頭 亮馬河']] },
+    { title: '模範書局詩空間', badge: '每日 10:00–18:30', lines: ['西城區佟麟閣路 85 號（中華聖公會教堂舊址）', '地鐵 2 號線長椿街站'], maps: [['模範書局詩空間', '模範書局詩空間']] },
+    { title: '世界公園（微縮世界）', lines: ['北京西南方約 15 公里，如果免門票倒是可以參觀'], maps: [['世界公園', '北京世界公園']] },
+    { title: '大興機場', lines: ['從北京草橋搭地鐵或高鐵約 19 分鐘抵達'], maps: [['北京大興國際機場', '北京大興國際機場']] }
+  ]
+},
+{
+  id: 'malls', chip: '商圈', icon: '🛍️', title: '附註三｜百貨與商圈', sub: '(1)–(3)、(4)–(6)、(7)–(9) 可考慮一起逛',
+  cards: [
+    { title: '(1) 王府井', lines: ['地鐵 1 號線或 8 號線王府井站', '新東安商場＋王府中環＋喜悅購物中心', '與西單在同一直線上，相距約 3.5 公里'], maps: [['王府井', '王府井'], ['王府中環', '王府中環']] },
+    { title: '(2) 西單商圈', lines: ['地鐵 1 號線或 4 號線西單站；漂亮天橋＋熱鬧街景（像日本大阪）', '西單更新場購物中心（超長室內螢幕瀑布）、北京君太、天悅城、漢光百貨、西單明珠（批發商場）'], maps: [['西單', '西單商圈'], ['西單更新場', '西單更新場']] },
+    { title: '(3) 東方廣場（東方新天地）', lines: ['東城區東長安街 1 號；壯觀的迎賓梯', '長約 1 公里的地下街（李嘉誠投資，共 4 區）', '地鐵 1 號線王府井站 A 口約 240 公尺，或東單站 A 口約 400 公尺'], maps: [['東方新天地', '東方新天地 北京']] },
+    { title: '(4) 亮馬河國際風情水岸', lines: ['燕莎碼頭：10 號線亮馬橋站出站步行兩三分鐘', '藍港碼頭：14 號線棗營站出站步行約 8 分鐘'], maps: [['亮馬河國際風情水岸', '亮馬河國際風情水岸']] },
+    { title: '(5) 藍色港灣', lines: ['地鐵 14 號線棗營站 A 口或 D 口，步行約 5 分鐘', '或 10 號線亮馬橋站向東約 600 公尺到朝陽公園路（好運街），再向南約 300 公尺'], maps: [['藍色港灣', '藍色港灣 北京']] },
+    { title: '(6) 三里屯太古里', badge: '夜景很棒', lines: ['五星級購物商圈；對面 SOHO 大樓', '地鐵 10 號線或 17 號線團結湖站 F 口，步行約 10 分鐘', '地鐵 3 號線團結湖站或工人體育場站也可到'], maps: [['三里屯太古里', '三里屯太古里']] },
+    { title: '(7) 世貿天階', lines: ['亞洲最大 LED 天幕（30 × 250 公尺）；近國貿、中國尊，可一起逛', '1 號線永安里站 B 口向北約 15 分鐘', '10 號線金台夕照站 D 口向西約 10 分鐘；6 號線東大橋站步行約 15 分鐘'], maps: [['世貿天階', '世貿天階']] },
+    { title: '(8)(9) 北京 CBD・中國尊', lines: ['中國國際貿易中心（共 3 期）、中央電視台總部大樓、中國尊等地標', '國貿：1 號線國貿站；央視大樓：10 號線金台夕照站 C 口', '1 / 10 號線國貿站出站沿東三環步行 10–15 分鐘'], maps: [['國貿', '中國國際貿易中心'], ['中央電視台總部大樓', '中央電視台總部大樓'], ['中國尊', '中國尊']] },
+    { title: '(10) 來福士中心', lines: ['特色中庭與商場', '地鐵 2 號線、13 號線或首都機場快線東直門站'], maps: [['來福士中心', '北京來福士中心 東直門']] },
+    { title: '(11) 北京 SKP（新光天地）', badge: '10:00–22:00', lines: ['超大百貨公司', '地鐵 1 號線及 14 號線大望路站直達'], maps: [['北京SKP', '北京SKP']] },
+    { title: '(12) 北京頤堤港', lines: ['朝陽區將台地區酒仙橋路 18 號', '地鐵 14 號線西將台站'], maps: [['頤堤港', '北京頤堤港']] },
+    { title: '(13) 北京薈聚', badge: '離市區約 40 分鐘', lines: ['大興區欣寧街 15 號', '地鐵 4 號線大興線西紅門站 A 口直達'], maps: [['北京薈聚', '北京薈聚 西紅門']] },
+    { title: '(14) 王府井奧特萊斯（灣裡 WellTown）', badge: '離市區約 50–60 分鐘', lines: ['北京最大奧特萊斯，在環球影城旁', '通州區張家灣頤瑞東路 66 號', '地鐵 1 號線、7 號線花莊站 A 口'], maps: [['王府井奧特萊斯 灣裡', '王府井奧特萊斯 灣裡'], ['花莊站', '花莊站 北京']] },
+    { title: '(15) 北京通州站・京帆廣場', badge: '離市區約 45–50 分鐘', lines: ['號稱亞洲最大地下綜合交通樞紐', '地鐵 6 號線北運河東站，步行約 10 分鐘'], maps: [['北京城市副中心站', '北京通州站 京帆廣場']] }
+  ]
+},
+{
+  id: 'summer-palace', chip: '頤和園', icon: '⛵', title: '頤和園＋圓明園一日遊（遊船路線）', sub: '參考方案；目前 DAY 6 上午排頤和園，圓明園尚未排入',
+  cards: [
+    { title: '上午｜紫竹院搭御河遊船進頤和園', badge: '超推薦，避開正門人潮', lines: ['紫竹院御河遊船直達頤和園新建宮門（南門），約半小時', '成人單程：線上團購 ¥59.9（現場 ¥100）；兒童 1.2–1.4 公尺 ¥50，1.2 公尺以下免票', '入園後走東岸精華線：銅牛 → 十七孔橋 → 廓如亭 → 東堤 → 知春亭', '視野開闊，正對佛香閣、萬壽山；平緩步行 25–30 分鐘到東宮門'], maps: [['紫竹院公園', '紫竹院公園'], ['頤和園新建宮門', '頤和園 新建宮門'], ['十七孔橋', '十七孔橋 頤和園'], ['頤和園東宮門', '頤和園 東宮門']] },
+    { title: '昆明湖園內遊船', lines: ['交通擺渡船：¥30–40／人（短程代步、避人流）', '自駕電瓶船：¥200／小時，押金 ¥600（適合慢逛）'] },
+    { title: '下午｜圓明園福海遊船＋遺址', lines: ['從東宮門出園、簡單午餐後，打車約 10 分鐘到圓明園', '順序：南門入園 → 綺春園 → 福海遊船（單程 ¥40／人）→ 西洋樓遺址', '必看：大水法、觀水法、西洋樓遺址；下午光線柔和、人較少'], maps: [['圓明園南門', '圓明園 南門'], ['福海', '圓明園 福海'], ['西洋樓遺址', '圓明園 西洋樓遺址']] },
+    { title: '實用提醒', lines: ['全程單向路線，不走回頭路', '遊船營運 8:30–17:30，御河遊船白天整點發船', '御河船票線上買較划算；園內遊船現場購票即可', '頤和園交通：4 號線北宮門站 D 口即北宮門；西苑站 C2 口步行到東宮門'] }
+  ]
+},
+{
+  id: 'qianmen', chip: '前門', icon: '🏮', title: '前門大街 → 鮮魚口 → 大柵欄', sub: 'DAY 8（11/10）下午；萬達美華飯店就在附近',
+  cards: [
+    { title: '交通', lines: ['地鐵 2 / 8 號線前門站 I 口或 B 口，出站即到前門大街', '前門站 C 口、I 口或 B 口出站，向南步行 2–5 分鐘到大柵欄街口', '7 號線珠市口站出站，沿前門大街向北步行 8–10 分鐘到大柵欄南側入口'], maps: [['前門站', '前門站 北京'], ['珠市口站', '珠市口站 北京']] },
+    { title: '前門大街', badge: '18:00 京劇快閃', lines: ['正陽門（前門）牌坊、復古鐺鐺車（¥20／人）、紅燈籠長廊', '吳裕泰冰淇淋（抹茶必吃）', '小吃：天興居炒肝、爆肚、門釘肉餅'], maps: [['前門大街', '前門大街'], ['正陽門', '正陽門'], ['吳裕泰 前門', '吳裕泰 前門大街']] },
+    { title: '鮮魚口美食街', badge: '17:00 鳳凰燈亮燈', lines: ['從主街步行約 5 分鐘，免費', '必吃：全聚德、便宜坊、門框胡同滷煮、糖畫、豌豆黃、方磚廠炸醬麵', '宮宴', '拍照：彩色燈籠長廊、巨型鳳凰燈（逆光超美）'], maps: [['鮮魚口美食街', '鮮魚口美食街'], ['宮宴', '宮宴 鮮魚口'], ['方磚廠炸醬麵', '方磚廠69號炸醬麵 鮮魚口']] },
+    { title: '大柵欄', lines: ['老字號手工藝品與藥鋪集中', '必逛：內聯升布鞋、同仁堂、瑞蚨祥綢布、六必居醬菜、大觀樓影院', '必吃：尹三豆汁、月盛齋醬牛肉、南門涮肉（銅鍋）', '民國老建築，紅燈籠夜景很有味道'], maps: [['大柵欄', '大柵欄'], ['內聯升', '內聯升 大柵欄'], ['南門涮肉', '南門涮肉 前門']] }
+  ]
+},
+{
+  id: 'notes', chip: '筆記', icon: '📝', title: '其他筆記（待整理）', sub: '文件後段的零散筆記，先收在這裡',
+  cards: [
+    { title: '交通筆記', lines: ['搭北京地鐵到巴溝站，轉乘西郊線到香山站，出站後步行約 500 公尺到東宮門'], maps: [['西郊線香山站', '香山站 西郊線']] },
+    { title: '圓明園', lines: ['可參考 YouTube：浙江 73 歲老人 1:1 重建圓明園導覽'], maps: [['圓明園', '圓明園']] },
+    { title: '白塔（妙應寺）', lines: ['老北京味道？有船可搭？（待確認）'], maps: [['妙應寺白塔', '妙應寺 白塔寺']] },
+    { title: '餐廳與網紅參考', lines: ['門框胡同百年滷煮（王府井東安門大街店）及附近餐廳', '鮮魚口：宮宴', '網紅參考：2 刷北京（3 個月前）'], maps: [['門框胡同百年滷煮', '門框胡同百年鹵煮 東安門大街']] }
+  ]
+}
+];
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function cardHtml(c) {
+  const tag = c.ol ? 'ol' : 'ul';
+  const lines = c.lines && c.lines.length ? `<${tag}>${c.lines.map(x => `<li>${x}</li>`).join('')}</${tag}>` : '';
+  const callout = c.callout ? `<div class="callout"><span>🔔</span><span>${esc(c.callout)}</span></div>` : '';
+  const maps = c.maps && c.maps.length ? `<div class="maps">${c.maps.map(([n, q]) => `<a class="map-link" href="${esc(M(q))}" target="_blank" rel="noopener"><span>📍 ${esc(n)}</span><span>↗</span></a>`).join('')}</div>` : '';
+  const links = c.links && c.links.length ? `<div class="inner-links">${c.links.map(([l, h]) => `<a class="btn soft" href="${esc(h)}">${esc(l)} →</a>`).join('')}</div>` : '';
+  return `<article class="card${c.wide ? ' wide' : ''}"><div class="card-head"><h3>${esc(c.title)}</h3>${c.badge ? `<span class="badge">${esc(c.badge)}</span>` : ''}</div><div class="card-body">${lines}${callout}${maps}${links}</div></article>`;
+}
+document.getElementById('chips').innerHTML = SECTIONS.map(s => `<a class="chip" href="#${s.id}">${s.icon} ${esc(s.chip || s.title)}</a>`).join('');
+document.getElementById('root').innerHTML = SECTIONS.map(s => `<section class="block" id="${s.id}"><div class="block-head"><span class="ico">${s.icon}</span><div><h2>${esc(s.title)}</h2>${s.sub ? `<p>${esc(s.sub)}</p>` : ''}</div></div><div class="cards">${s.cards.map(cardHtml).join('')}</div></section>`).join('');
+if (location.hash) { const el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }
+
+</script>
+</body>
+</html>
