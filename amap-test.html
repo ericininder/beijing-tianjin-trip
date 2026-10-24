@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>地圖連結測試</title>
+<style>
+:root { --navy:#0b3766; --line:#bde9f7; --muted:#4f6478; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif; color:var(--navy); background:linear-gradient(180deg,#dff6ff,#fff 60%); }
+.wrap { max-width:560px; margin:0 auto; padding:20px 16px 48px; }
+h1 { font-size:1.5rem; margin:4px 0 6px; }
+p { color:var(--muted); line-height:1.6; margin:0 0 14px; font-weight:600; }
+h2 { font-size:1.05rem; margin:22px 0 10px; }
+a { display:flex; gap:12px; align-items:center; text-decoration:none; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin:0 0 10px; box-shadow:0 6px 16px rgba(12,60,110,.08); }
+a b { flex:0 0 34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--navy); color:#fff; }
+a span { font-weight:800; line-height:1.4; }
+a small { display:block; color:var(--muted); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>地圖連結測試</h1>
+  <p>每個按鈕都是搜尋同一個地點「江蘇飯店（北京）」，只是開啟方式不同。請逐一點開，記下哪幾號能正常顯示地點。</p>
+
+  <h2>高德網頁</h2>
+  <a href="https://uri.amap.com/search?keyword=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&city=%E5%8C%97%E4%BA%AC&view=map&src=bt-trip&callnative=1" target="_blank" rel="noopener"><b>1</b><span>目前網站用的方式<small>地圖模式，並嘗試開高德 App</small></span></a>
+  <a href="https://uri.amap.com/search?keyword=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&city=%E5%8C%97%E4%BA%AC&view=list&src=bt-trip&callnative=0" target="_blank" rel="noopener"><b>2</b><span>列表模式<small>不嘗試開 App</small></span></a>
+  <a href="https://uri.amap.com/search?keyword=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&city=%E5%8C%97%E4%BA%AC&view=map&src=bt-trip&callnative=0" target="_blank" rel="noopener"><b>3</b><span>地圖模式<small>不嘗試開 App</small></span></a>
+  <a href="https://www.amap.com/search?query=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&city=110000" target="_blank" rel="noopener"><b>4</b><span>高德電腦版網站</span></a>
+
+  <h2>直接開高德 App（手機有裝 App 才會動）</h2>
+  <a href="iosamap://poi?sourceApplication=bt-trip&name=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&dev=0"><b>5</b><span>iPhone 用</span></a>
+  <a href="amapuri://poi?sourceApplication=bt-trip&keywords=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&dev=0"><b>6</b><span>Android 用</span></a>
+
+  <h2>備案</h2>
+  <a href="https://api.map.baidu.com/place/search?query=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&region=%E5%8C%97%E4%BA%AC&output=html&src=bt-trip" target="_blank" rel="noopener"><b>7</b><span>百度地圖網頁</span></a>
+  <a href="https://maps.apple.com/?q=%E6%B1%9F%E8%8B%8F%E9%A5%AD%E5%BA%97&near=%E5%8C%97%E4%BA%AC" target="_blank" rel="noopener"><b>8</b><span>Apple 地圖（iPhone）<small>在中國境內使用高德的圖資</small></span></a>
+</div>
+</body>
+</html>
