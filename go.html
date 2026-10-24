@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>開啟高德地圖</title>
+<style>
+:root { --navy:#0b3766; --line:#bde9f7; --muted:#4f6478; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; display:grid; place-items:center; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif; color:var(--navy); background:linear-gradient(180deg,#dff6ff,#fff 70%); }
+.card { width:min(420px, calc(100% - 32px)); background:#fff; border:1px solid var(--line); border-radius:22px; padding:24px 20px; box-shadow:0 14px 40px rgba(9,50,93,.12); text-align:center; }
+h1 { font-size:1.3rem; margin:0 0 6px; }
+p { margin:0 0 18px; color:var(--muted); font-weight:600; line-height:1.6; }
+a { display:block; padding:14px 16px; border-radius:999px; text-decoration:none; font-weight:900; margin-top:10px; border:1px solid rgba(11,55,102,.12); color:var(--navy); background:#eefaff; }
+a.primary { background:linear-gradient(135deg,var(--navy),#17669a); color:#fff; border-color:transparent; }
+.back { background:none; border:0; color:var(--muted); font-weight:700; }
+</style>
+</head>
+<body>
+<main class="card">
+  <h1 id="title">正在開啟高德地圖…</h1>
+  <p id="sub">如果沒有自動跳轉，請點下面的按鈕。</p>
+  <a id="app" class="primary" href="#">開啟高德 App</a>
+  <a id="web" href="#" rel="noopener">用高德網頁版查看</a>
+  <a class="back" href="./index.html">← 回行程表</a>
+</main>
+<script>
+/* PDF 裡的景點連結會先到這頁：iPhone / iPad 開高德 App，其他裝置開高德網頁 */
+const p = new URLSearchParams(location.search);
+const q = (p.get('q') || '').trim();
+const c = (p.get('c') || '').trim();
+const enc = encodeURIComponent;
+const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const iosName = c === '天津' && !q.includes('天津') ? '天津' + q : q;
+const appUrl = 'iosamap://poi?sourceApplication=bt-trip&name=' + enc(iosName) + '&dev=0';
+const webUrl = 'https://uri.amap.com/search?keyword=' + enc(q) + (c ? '&city=' + enc(c) : '') + '&view=map&src=bt-trip&callnative=1';
+if (!q) {
+  document.getElementById('title').textContent = '沒有指定地點';
+  document.getElementById('sub').textContent = '請回行程表重新選擇景點。';
+  document.getElementById('app').remove();
+  document.getElementById('web').remove();
+} else {
+  document.title = q + '｜開啟高德地圖';
+  document.getElementById('title').textContent = '開啟高德地圖：' + q;
+  document.getElementById('app').href = appUrl;
+  document.getElementById('web').href = webUrl;
+  if (!IOS) document.getElementById('app').remove();
+  location.replace(IOS ? appUrl : webUrl);
+}
+</script>
+</body>
+</html>

@@ -137,12 +137,17 @@ h2 { margin:14px 0 8px; font-size:clamp(1.45rem,4.5vw,2.35rem); color:var(--navy
 <script>
 /* ===== 地圖連結小工具（高德地圖）===== */
 const enc = s => encodeURIComponent(s);
-/* 高德地圖連結：查詢字轉簡體、依地點帶城市；手機有裝高德 App 會直接開啟 */
+/* 高德地圖連結：查詢字轉簡體、依地點帶城市 */
 const T2S = {"來":"来","內":"内","剎":"刹","勸":"劝","區":"区","吳":"吴","單":"单","國":"国","園":"园","圓":"圆","圖":"图","場":"场","壇":"坛","奧":"奥","學":"学","宮":"宫","寶":"宝","嶺":"岭","廈":"厦","廟":"庙","廠":"厂","廣":"广","應":"应","書":"书","東":"东","柵":"栅","業":"业","樓":"楼","橋":"桥","機":"机","欄":"栏","溝":"沟","滾":"滚","濱":"滨","灣":"湾","煙":"烟","營":"营","環":"环","監":"监","碼":"码","磚":"砖","範":"范","紀":"纪","紅":"红","線":"线","總":"总","聯":"联","臥":"卧","興":"兴","莊":"庄","華":"华","萊":"莱","萬":"万","薈":"荟","藍":"蓝","藝":"艺","蘇":"苏","號":"号","術":"术","裡":"里","視":"视","詩":"诗","貿":"贸","購":"购","車":"车","遊":"游","達":"达","遺":"遗","醬":"酱","釣":"钓","銀":"银","錠":"锭","鐘":"钟","長":"长","門":"门","間":"间","閣":"阁","關":"关","陽":"阳","階":"阶","際":"际","電":"电","靜":"静","頤":"颐","頭":"头","風":"风","飯":"饭","館":"馆","馬":"马","體":"体","魚":"鱼","鮮":"鲜","鳥":"鸟","鹵":"卤","麵":"面","齋":"斋"};
 const sc = s => [...s].map(c => T2S[c] || c).join('');
 const amapCity = q => /天津|濱海/.test(q) ? '天津' : (/桃園/.test(q) ? '' : '北京');
 const amapKw = q => sc(q).split(' ').filter(t => t !== '北京' && t !== '天津').join(' ') || sc(q);
-const M = q => 'https://uri.amap.com/search?keyword=' + enc(amapKw(q)) + (amapCity(q) ? '&city=' + enc(amapCity(q)) : '') + '&view=map&src=bt-trip&callnative=1';
+const amapWeb = q => 'https://uri.amap.com/search?keyword=' + enc(amapKw(q)) + (amapCity(q) ? '&city=' + enc(amapCity(q)) : '') + '&view=map&src=bt-trip&callnative=1';
+/* iPhone / iPad：直接開高德 App；其他裝置（電腦、Android）開高德網頁 */
+const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const iosName = q => { const k = amapKw(q); return amapCity(q) === '天津' && !k.includes('天津') ? '天津' + k : k; };
+const M = q => IOS ? 'iosamap://poi?sourceApplication=bt-trip&name=' + enc(iosName(q)) + '&dev=0' : amapWeb(q);
+const tgt = u => /^https?:/.test(u) ? ' target="_blank" rel="noopener"' : '';
 const L = (name, q) => ({ name, url: M(q || name) });
 
 /* ===== 行程資料（115/10/24 版：調整每日順序）=====
@@ -336,7 +341,7 @@ function renderDay() {
   const tips = Object.entries(day.tips).map(([k, arr]) => `<article class="tip"><strong><span>${ICONS[k]||'•'}</span>${esc(k)}</strong>${arr.map(x=>`<p>${esc(x)}</p>`).join('')}</article>`).join('');
   const extras = (day.extras||[]).map(b => `<div class="ref-box"><h4>${esc(b.title)}</h4><ul>${b.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('');
   const guides = (day.guides||[]).map(g => `<a class="btn soft" href="${esc(g.href)}">${esc(g.label)} →</a>`).join('');
-  const links = day.links.map(l => `<a class="map-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>📍 ${esc(l.name)}</span><span>高德地圖 ↗</span></a>`).join('');
+  const links = day.links.map(l => `<a class="map-link" href="${esc(l.url)}"${tgt(l.url)}><span>📍 ${esc(l.name)}</span><span>高德地圖 ↗</span></a>`).join('');
   const poster = `<img src="${POSTERS[day.day]}" alt="DAY ${day.day} 行程圖">`;
   document.getElementById('day-root').innerHTML = `
     <section class="info-card">
